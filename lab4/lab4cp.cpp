@@ -15,13 +15,15 @@ int main() {
 
     string fileContents((istreambuf_iterator<char>(inputFile)), istreambuf_iterator<char>());
 
-    // Define a regular expression to match function declarations
+   
+    
     regex functionRegex(R"(\b(?:int|void|double|float|char)\s+(\w+)\s*\([^)]*\)\s*\{)");
 
     smatch match;
     unordered_set<string> functionSet;
 
-    // Iterate through matches
+    
+    
     auto words_begin = sregex_iterator(fileContents.begin(), fileContents.end(), functionRegex);
     auto words_end = sregex_iterator();
 
@@ -34,7 +36,8 @@ int main() {
 
     inputFile.close();
 
-    // Print the unique user-defined functions
+   
+    
     cout << "Unique User-Defined Functions:" << endl;
     for (const string& functionName : functionSet) {
         cout << functionName << endl;
